@@ -15,11 +15,11 @@ jobs:
       - name: Mirror otya128/winevdm Git history to GitFlic
         env:
           GITFLIC_USER: ${{ secrets.GITFLIC_USER }}
-          GITFLIC_TRANSPORT_TOKEN: ${{ secrets.GITFLIC_TRANSPORT_TOKEN }}
+          GITFLIC_API_TOKEN: ${{ secrets.GITFLIC_API_TOKEN }}
         run: |
           git clone --mirror https://github.com/otya128/winevdm.git winevdm.git
           cd winevdm.git
-          git push --mirror "https://${GITFLIC_USER}:${GITFLIC_TRANSPORT_TOKEN}@gitflic.ru/starware/otvdm.git"
+          git push --mirror "https://${GITFLIC_USER}:${GITFLIC_API_TOKEN}@gitflic.ru/project/starware/otvdm.git"
 
       - name: Set up Python
         uses: actions/setup-python@v5
